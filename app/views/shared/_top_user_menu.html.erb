@@ -1,0 +1,9 @@
+
+  <%= link_to "войти", new_user_session_path %>
+
+
+
+  <%= link_to "выйти", destroy_user_session_path, method: :delete %>
+
+
+<%= current_user.email if current_user %>

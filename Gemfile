@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.17'
 gem 'pg'
-gem 'jquery-rails'
+gem "jquery-rails", "~> 2.3.0"
 gem 'execjs'
 gem 'therubyracer'
 gem 'russian', '~> 0.6.0'
