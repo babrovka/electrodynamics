@@ -9,6 +9,8 @@ gem 'russian', '~> 0.6.0'
 gem 'populator'
 gem 'faker'
 gem 'activeadmin'
+gem 'capistrano'
+gem 'rvm-capistrano'
 
 
 group :assets do
