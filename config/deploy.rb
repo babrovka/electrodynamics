@@ -1,3 +1,6 @@
+require 'bundler/capistrano'
+load 'deploy/assets'
+
 module UseScpForDeployment
   def self.included(base)
     base.send(:alias_method, :old_upload, :upload)
