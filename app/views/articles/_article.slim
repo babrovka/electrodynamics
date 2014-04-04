@@ -1,2 +1,10 @@
-span = article.created_at
-h1 = article.title
+.article
+  span = article.created_at.strftime('%d.%m.%y %H:%M') 
+  span = ', автор '
+  span = article.author.first_name_with_last_name
+  h1 = article.title
+  span тэги: 
+  - article.tags.each do |tag|
+    = (link_to tag.title, '#') + ' '
+  .article_text
+    = article.text
