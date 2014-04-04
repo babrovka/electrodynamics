@@ -11,6 +11,8 @@ gem 'faker'
 gem 'activeadmin'
 gem 'capistrano'
 gem 'rvm-capistrano'
+gem 'bootstrap-sass', '~> 3.1.1'
+gem 'slim'
 
 
 group :assets do

@@ -1,0 +1,25 @@
+.row
+  .col-md-9.logo 
+    h4 Electrodynamics.ru
+  .col-md-3
+  - if user_signed_in? 
+    span = current_user.first_name_with_last_name
+    = link_to ' выйти', destroy_user_session_path, :method => :delete
+  - else
+    = link_to 'войти', new_user_session_path
+    = link_to ' зарегистрироваться', new_user_registration_path
+.row
+  .col-md-12
+    ul.nav.nav-pills
+      li
+        = link_to 'Новости', '#'
+      li
+        = link_to 'Статьи', '#'
+      li
+        = link_to 'Библиотека', '#'
+      li
+        = link_to 'Организации', '#'
+      li
+        = link_to 'Блоги', '#'
+      
+    
