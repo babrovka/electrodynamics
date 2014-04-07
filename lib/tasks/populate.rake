@@ -26,7 +26,7 @@ namespace :create do
     Article.populate 40 do |article|
       article.title = Populator.sentences(1)
       article.text = Populator.sentences(30..50)
-      article.author_id = User.all.sample
+      article.author_id = User.where('firstname != ?', 'admin').sample
     end
     Article.all.each { |article| article.tags << Tag.all.sample; article.save! }
     puts "Articles created!"
