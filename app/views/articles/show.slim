@@ -1,0 +1,13 @@
+.row
+  .col-md-9
+    span = @article.created_at.strftime('%d.%m.%y %H:%M') 
+    span = ', автор '
+    = link_to @article.author.first_name_with_last_name, '#' if @article.author
+    h1 = @article.title
+    span тэги: 
+    - @article.tags.each do |tag|
+      = (link_to tag.title, '#') + ' '
+    .article_text
+      = @article.text
+  .col-md-3
+    = render 'shared/right_panel'

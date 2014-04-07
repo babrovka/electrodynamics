@@ -8,7 +8,11 @@ html
     = yield(:head)
   body
     .container
-      = notice
-      = alert
       = render 'shared/top_menu'
+      - if notice
+        div.alert.alert-info
+          = notice
+      - if alert
+        div.alert.alert-danger
+          = alert
       = yield
