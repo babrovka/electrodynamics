@@ -17,6 +17,10 @@
 	margin-bottom: 20px;
 }
 
-#new_comment input[type="submit"] {
+#new_comment input[type="submit"], #new_article input[type="submit"] {
 	margin-top: 20px;
+}
+
+.chosen-select {
+	width: 200px;
 }

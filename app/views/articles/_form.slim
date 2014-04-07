@@ -1,0 +1,10 @@
+= simple_form_for @article do |f|
+  .form-group
+    = f.input :title, label: 'Заголовок', input_html: { class: 'form-control' }
+    = f.input :text, label: 'Текст', input_html: { class: 'form-control', rows: 7 }
+    = f.association :tags,
+      collection: Tag.all.map{ |t| [t.title, t.id] },
+      include_blank: true, 
+      input_html: { class: 'chosen-select', :data => {:placeholder => 'Выберите теги '} }, 
+      label: 'Теги'
+    = f.submit "Создать", :class => "btn btn-primary"
