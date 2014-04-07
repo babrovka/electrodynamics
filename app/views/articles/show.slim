@@ -14,7 +14,7 @@
     - @article.comments.each do |comment|
       .media
         a.pull-left href="#"
-          img.media-object src="/64.svg" alt="..."
+          img.media-object src="/assets/64.svg" alt="..."
         .media-body
           h4.media-heading #{link_to comment.author.first_name_with_last_name, "#"}, #{date_with_month(comment.created_at)} #{link_to_delete_comment(current_user, comment)}
           = comment.comment
