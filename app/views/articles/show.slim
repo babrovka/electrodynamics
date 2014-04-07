@@ -16,7 +16,14 @@
         a.pull-left href="#"
           img.media-object src="/64.svg" alt="..."
         .media-body
-          h4.media-heading #{link_to comment.author.first_name_with_last_name, "#"}, #{date_with_month(comment.created_at)}
+          h4.media-heading #{link_to comment.author.first_name_with_last_name, "#"}, #{date_with_month(comment.created_at)} #{link_to_delete_comment(current_user, comment)}
           = comment.comment
+    - if user_signed_in?
+      h3 Оставить свой комментарий
+      = form_for @comment do |f|
+        = f.text_area :comment, class: 'form-control', rows: 3
+        = f.hidden_field :author_id, :value => (current_user.id if current_user)
+        = f.hidden_field :article_id, :value => @article.id 
+        = f.submit "Отправить", :class => "btn btn-primary"
   .col-md-3
     = render 'shared/right_panel'
