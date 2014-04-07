@@ -12,7 +12,7 @@
             li
               = link_to 'мои настройки', '#'
             li
-              = link_to 'выйти', destroy_user_session_path, :method => :delete
+              = link_to 'выйти', destroy_user_session_path
       - else 
         li
           = link_to 'войти', new_user_session_path
