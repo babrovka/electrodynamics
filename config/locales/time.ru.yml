@@ -1,0 +1,4 @@
+ru:
+  time:
+    formats:
+      with_month: "%d %B %y в %H:%M"

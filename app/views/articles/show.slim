@@ -9,5 +9,14 @@
       = (link_to tag.title, '#') + ' '
     .article_text
       = @article.text
+    ul.media-list
+    h3 Комментарии (#{@article.comments.count})
+    - @article.comments.each do |comment|
+      .media
+        a.pull-left href="#"
+          img.media-object src="/64.svg" alt="..."
+        .media-body
+          h4.media-heading #{link_to comment.author.first_name_with_last_name, "#"}, #{date_with_month(comment.created_at)}
+          = comment.comment
   .col-md-3
     = render 'shared/right_panel'
