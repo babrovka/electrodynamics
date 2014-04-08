@@ -1,0 +1,12 @@
+.row
+  .col-md-12.organization_title
+    h1 = @organization.title
+.row
+  .col-md-9
+    .nav.nav-tabs.nav-justified
+      = content_tag(:li, (link_to 'Записи'), :class => 'active')
+      = content_tag(:li, (link_to 'Профиль'))
+      = content_tag(:li, (link_to 'Вакансии'))
+      = content_tag(:li, (link_to 'События'))
+  .col-md-3
+    = render 'shared/right_panel'

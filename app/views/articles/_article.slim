@@ -5,7 +5,7 @@
   h1 = article.title
   span тэги: 
   - article.tags.each do |tag|
-    = (link_to tag.title, '#') + ' '
+    = (link_to tag.title, articles_path(:tag => tag.id)) + ' '
   .article_text
     = truncate(article.text, length: 1300)
   = link_to 'Читать далее', article, :class => 'btn btn-primary'

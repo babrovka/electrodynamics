@@ -7,7 +7,7 @@
       tbody
       - @organizations.each do |organization|
         tr
-          td = organization.title
+          td = link_to organization.title, organization
           td = organization.index
         
   .col-md-3

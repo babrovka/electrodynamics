@@ -1,7 +1,14 @@
 class ArticlesController < InheritedResources::Base
   
   def index 
-    @articles = params[:category] ? Article.where(:category_id => params[:category]) : Article.all
+    case true
+    when params[:category].present?
+      @articles = Article.where(:category_id => params[:category])
+    when params[:tag].present?
+      @articles = Article.includes(:tags).where(:tags => {:id => params[:tag]})
+    else
+      @articles = Article.all
+    end
   end
   
   def show 
