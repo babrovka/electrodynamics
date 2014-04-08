@@ -1,0 +1,14 @@
+.row
+  .col-md-9
+    table.table
+      thead
+        td Название
+        td Индекс
+      tbody
+      - @organizations.each do |organization|
+        tr
+          td = organization.title
+          td = organization.index
+        
+  .col-md-3
+    = render 'shared/categories'

@@ -29,6 +29,15 @@ namespace :create do
     puts "Categories created!"
   end
   
+  task :organizations => :environment do
+    Organization.destroy_all
+    Organization.populate 10 do |organization|
+      organization.title = Populator.words(1.2)
+      organization.index = (100..1000)
+    end
+    puts "Organizations created!"
+  end
+  
   task :articles => :environment do
     Comment.destroy_all
     Article.destroy_all
@@ -54,9 +63,7 @@ namespace :create do
       end
       article.save!
     end
-    
-    
-    # Article.all.each { |article| article.tags << Tag.all.sample; article.save! }
+
     puts "Articles created!"
   end
   
