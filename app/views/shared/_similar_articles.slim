@@ -1,0 +1,6 @@
+.jumbotron
+  h4 Похожие статьи
+  - @articles.each do |article|
+    = link_to article.title, article
+    .similar_article_date = article.created_at.strftime('%d.%m.%y') 
+    
