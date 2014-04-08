@@ -1,35 +1,27 @@
-.row.topmenu
-  .col-md-9.logo 
-    = link_to root_path do
-      h4 Electrodynamics.ru
-  .col-md-3
-    ul.nav.nav-pills
-      - if user_signed_in? 
-        li.dropdown
-          a.dropdown-toggle href="#" data-toggle="dropdown" = current_user.first_name_with_last_name
-            span.caret
-          ul.dropdown-menu
-            li
-              = link_to 'мои настройки', '#'
-            li
-              = link_to 'выйти', destroy_user_session_path
-      - else 
-        li
-          = link_to 'войти', new_user_session_path
-        li
-          = link_to ' зарегистрироваться', new_user_registration_path          
-.row
-  .col-md-12
-    ul.nav.nav-pills
-      li
-        = link_to 'Новости', '#'
-      li
-        = link_to 'Статьи', '#'
-      li
-        = link_to 'Библиотека', '#'
-      li
-        = link_to 'Организации', '#'
-      li
-        = link_to 'Блоги', '#'
+.topmenu
+  .row
+    .col-md-9.logo 
+      = link_to root_path do
+        h4 Electrodynamics.ru
+    .col-md-3
+      ul.nav.nav-pills
+        - if user_signed_in? 
+          li.dropdown
+            a.dropdown-toggle href="#" data-toggle="dropdown" = current_user.first_name_with_last_name
+              span.caret
+            ul.dropdown-menu
+              li = link_to 'мои настройки', '#'
+              li = link_to 'выйти', destroy_user_session_path
+        - else 
+          li = link_to 'войти', new_user_session_path
+          li = link_to ' зарегистрироваться', new_user_registration_path          
+  .row
+    .col-md-12
+      ul.nav.nav-pills.nav-justified
+        = content_tag(:li, (link_to 'Новости', '#'))
+        = content_tag(:li, (link_to 'Статьи', articles_path), :class => ('active' if controller?('articles')))
+        = content_tag(:li, (link_to 'Библиотека', '#'))
+        = content_tag(:li, (link_to 'Организации', '#'))
+        = content_tag(:li, (link_to 'Блоги', '#'))
       
     

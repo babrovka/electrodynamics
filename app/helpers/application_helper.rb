@@ -2,6 +2,14 @@
 
 module ApplicationHelper
   
+  def controller?(*controller)
+     controller.include?(params[:controller])
+   end
+
+   def action?(*action)
+     action.include?(params[:action])
+   end
+  
   def date_with_month(date)
     I18n.localize(date, :format => :with_month)
   end
@@ -12,6 +20,10 @@ module ApplicationHelper
   
   def users
     User.where('firstname != ?', 'admin')
+  end
+  
+  def categories_list
+    Category.all
   end
     
 end

@@ -21,6 +21,14 @@ namespace :create do
     puts "Tags created!"
   end
   
+  task :categories => :environment do
+    Category.destroy_all
+    Category.populate 10 do |category|
+      category.title = Populator.words(1.2)
+    end
+    puts "Categories created!"
+  end
+  
   task :articles => :environment do
     Comment.destroy_all
     Article.destroy_all
@@ -29,6 +37,7 @@ namespace :create do
       article.title = Populator.sentences(1)
       article.text = Populator.sentences(30..50)
       article.author_id = users.sample
+      article.category_id = Category.all
       Comment.populate(3..7) do |comment|
         comment.article_id = article.id
         comment.author_id = users.sample

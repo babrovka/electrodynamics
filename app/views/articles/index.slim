@@ -1,5 +1,9 @@
 .row
   .col-md-9
+    .nav.nav-tabs.nav-justified
+      = content_tag(:li, (link_to 'Лучшие'), :class => 'active')
+      = content_tag(:li, (link_to 'По категории'))
+      = content_tag(:li, (link_to 'Организации'))
     = render @articles
   .col-md-3
-    = render 'shared/right_panel'
+    = render 'shared/categories'

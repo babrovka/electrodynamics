@@ -16,7 +16,7 @@
         a.pull-left href="#"
           img.media-object src="/assets/64.svg" alt="..."
         .media-body
-          h4.media-heading #{link_to comment.author.first_name_with_last_name, "#"}, #{date_with_month(comment.created_at)} #{link_to_delete_comment(current_user, comment)}
+          h4.media-heading #{link_to comment.author.first_name_with_last_name, "#"}, #{date_with_month(comment.created_at)} #{link_to_delete_comment(current_user, comment) if user_signed_in? }
           = comment.comment
     - if user_signed_in?
       h3 Оставить свой комментарий

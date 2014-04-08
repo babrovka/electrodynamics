@@ -1,0 +1,4 @@
+.jumbotron
+  h4 Категории
+  - categories_list.each do |category|
+    h5 = link_to category.title, articles_path(:category => category.id)
