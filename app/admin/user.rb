@@ -3,7 +3,10 @@ ActiveAdmin.register User do
     column :email                     
     column :current_sign_in_at        
     column :last_sign_in_at           
-    column :sign_in_count             
+    column :sign_in_count    
+    column :role do |column|
+      column.role ? I18n.t(column.role) : nil
+    end         
     default_actions                   
   end                                 
 
