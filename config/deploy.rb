@@ -50,6 +50,12 @@ namespace(:thin) do
   end
 end
 
+namespace(:populate) do
+  task :data do
+    run %Q{cd #{latest_release} && bundle exec rake db:seed RAILS_ENV=production}
+  end
+end
+
 
 before "deploy:assets:precompile", "copy_database_config"
 after "deploy", "deploy:cleanup"
