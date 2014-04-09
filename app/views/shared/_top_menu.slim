@@ -18,8 +18,8 @@
   .row
     .col-md-12
       ul.nav.nav-pills.nav-justified
-        = content_tag(:li, (link_to 'Новости', '#'))
-        = content_tag(:li, (link_to 'Статьи', articles_path), :class => ('active' if controller?('articles')))
+        = content_tag(:li, (link_to 'Новости', news_path), :class => ('active' if action?('news')))
+        = content_tag(:li, (link_to 'Статьи', articles_path), :class => ('active' if controller?('articles') && action?('index')))
         = content_tag(:li, (link_to 'Библиотека', '#'))
         = content_tag(:li, (link_to 'Организации', organizations_path), :class => ('active' if controller?('organizations')))
         = content_tag(:li, (link_to 'Блоги', '#'))

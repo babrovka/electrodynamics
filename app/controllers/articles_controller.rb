@@ -11,6 +11,11 @@ class ArticlesController < InheritedResources::Base
     end
   end
   
+  def news
+    @articles = Article.all
+    render :index
+  end
+  
   def show 
     @article = Article.find(params[:id])
     @comment = Comment.new
