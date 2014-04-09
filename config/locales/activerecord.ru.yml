@@ -1,0 +1,15 @@
+ru:
+  activerecord:
+    models:
+      article:
+        one: "Статья"
+        other: "Статьи"
+        many: "Статьи"
+        few: "Статьи"
+    attributes:
+      article:
+        title:                      Заголовок
+      user:
+        firstname: Имя
+        lastname: Фамилия
+        role: Тип пользователя

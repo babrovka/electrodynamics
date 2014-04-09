@@ -14,6 +14,7 @@ ActiveAdmin.register User do
       f.input :email                  
       f.input :firstname 
       f.input :lastname
+      f.input :role, :as => :select, :collection => User::ROLES.map { |r| [  I18n.t(r), r ] }
       f.input :password               
       f.input :password_confirmation  
     end                               
@@ -25,6 +26,9 @@ ActiveAdmin.register User do
       row :email
       row :firstname
       row :lastname
+      row :role do
+        I18n.t(user.role)
+      end
     end 
   end
   
