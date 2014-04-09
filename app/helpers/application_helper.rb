@@ -25,5 +25,9 @@ module ApplicationHelper
   def categories_list
     Category.all
   end
+  
+  def side_articles
+    Article.limit(5)
+  end
     
 end

@@ -6,4 +6,5 @@
       = content_tag(:li, (link_to 'Организации'))
     = render @articles
   .col-md-3
+    = render 'shared/articles', :heading => 'Что обсуждают', :@articles => side_articles
     = render 'shared/categories'
