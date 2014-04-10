@@ -34,6 +34,7 @@ module Electrodynamics
     # config.i18n.default_locale = :de
     
     config.before_configuration do
+      I18n.config.enforce_available_locales = false
       I18n.load_path += Dir[Rails.root.join('config', 'locales', '*.{rb,yml}').to_s]
       I18n.locale = :ru
       I18n.default_locale = :ru
