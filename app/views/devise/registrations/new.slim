@@ -13,7 +13,8 @@
       h1 Тип пользователя
       .row
         .col-xs-8
-          = f.select(:role, User::ROLES.map {|r| [ t(r), r]}, {}, { :class => 'form-control' })
+          = f.select(:role, User::ROLES.map {|r| [ t(r), r]}, {:prompt => 'Выберите тип пользователя'}, { :class => 'form-control' })
+          .role_description
       = f.submit "Зарегистрироваться", :class => "btn btn-success"
   .col-md-6
     h1 Или зарегистрируйтесь с помощью аккаунта
