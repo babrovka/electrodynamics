@@ -1,0 +1,13 @@
+.row
+  .col-md-6
+    = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+      h1 Пожалуйста, авторизуйтесь
+      .row
+        .col-xs-8
+          = f.email_field :email, class: 'form-control', :autofocus => true, :placeholder => 'Электронная почта'
+          = f.password_field :password, class: 'form-control', :placeholder => 'Пароль'
+          .checkbox
+            label
+              input type="checkbox" Запомнить меня
+          = f.submit "Войти", :class => "btn btn-success"
+          
