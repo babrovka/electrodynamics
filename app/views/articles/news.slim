@@ -1,0 +1,8 @@
+.row
+  .col-md-9
+    .nav.nav-tabs.nav-justified
+      = content_tag(:li, (link_to 'Моя подборка'), :class => 'active')
+      = content_tag(:li, (link_to 'Все новости'))
+    = render @articles
+  .col-md-3
+    = render 'shared/articles', :heading => 'Лучшие', :@articles => side_articles

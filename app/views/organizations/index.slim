@@ -7,7 +7,12 @@
       tbody
       - @organizations.each do |organization|
         tr
-          td = link_to organization.title, organization
+          td.organization_cell
+            h1 = link_to organization.title, organization
+            = link_to "Подписаться", "#", :class => 'btn btn-primary'
+            .clearfix
+            #{rand(5000)} подписчиков
+            span Последний пост из блога: #{link_to random_article.title, random_article}
           td = organization.index
         
   .col-md-3

@@ -29,5 +29,9 @@ module ApplicationHelper
   def side_articles
     Article.limit(5)
   end
+  
+  def random_article
+    Article.all.sample
+  end
     
 end

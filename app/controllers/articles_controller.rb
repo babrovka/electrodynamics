@@ -13,7 +13,6 @@ class ArticlesController < InheritedResources::Base
   
   def news
     @articles = Article.all
-    render :index
   end
   
   def show 
