@@ -1,0 +1,15 @@
+.row
+  .col-md-8
+    .nav.nav-tabs.nav-justified
+      = content_tag(:li, (link_to 'Личные'), :class => 'active')
+      = content_tag(:li, (link_to 'Подписки'))
+      = content_tag(:li, (link_to 'Мои контакты'))
+      = content_tag(:li, (link_to 'Мои сообщения'))
+.row
+  = form_for(current_user, :url => registration_path(current_user), :html => { :method => :put }) do |f|
+    .col-xs-4
+      h1 Профиль
+      = f.text_field :firstname, class: 'form-control', :placeholder => 'Имя'
+      = f.text_field :lastname, class: 'form-control', :placeholder => 'Фамилия'
+      = f.submit "Сменить пароль", :class => "btn btn-default"
+    
