@@ -33,5 +33,13 @@ module ApplicationHelper
   def random_article
     Article.all.sample
   end
+  
+  def countries
+    Country.all
+  end
+  
+  def cities
+    Citi.all
+  end
     
 end

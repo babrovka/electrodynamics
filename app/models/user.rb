@@ -2,7 +2,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   attr_accessor :current_password
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :firstname, :lastname, :role, :nickname, :current_password
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :firstname, :lastname, 
+                  :role, :nickname, :current_password, :country_id, :city_id
   
   ROLES = %w[moderator user]
   
