@@ -5,4 +5,5 @@
       = content_tag(:li, (link_to 'Все новости'))
     = render @articles
   .col-md-3
+    = link_to 'Настроить ленту новостей', '#', :class => 'btn btn-primary', :id => 'configure_news_list' 
     = render 'shared/articles', :heading => 'Лучшие', :@articles => side_articles
