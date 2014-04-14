@@ -1,6 +1,14 @@
 .row
-  .col-md-12.organization_title
+  .col-md-3.organization_title
     h1 = @organization.title
+  .col-md-3
+    span 3213 подписчиков
+    .clearfix
+    span 234 статьи
+  .col-md-1
+    span индекс #{@organization.index}
+  .col-md-5
+    = link_to "Подписаться", "#", :class => 'btn btn-primary' 
 .row
   .col-md-9
     .nav.nav-tabs.nav-justified
