@@ -1,18 +1,18 @@
 .row
   .col-md-8
     ul.nav.nav-tabs.nav-justified
-      = content_tag(:li, (link_to 'Личные', '#personal', :data => { :toggle => 'tab' }), :class => 'active')
+      = content_tag(:li, (link_to 'Личные', '#personal', :data => { :toggle => 'tab' }))
       = content_tag(:li, (link_to 'Подписки', '#subscriptions', :data => { :toggle => 'tab' }))
-      = content_tag(:li, (link_to 'Мои контакты', '#contacts', :data => { :toggle => 'tab' }))
+      = content_tag(:li, (link_to 'Мои контакты', '#contacts', :data => { :toggle => 'tab' }), :class => 'active')
       = content_tag(:li, (link_to 'Мои сообщения', '#messages', :data => { :toggle => 'tab' }))
 
 
 .tab-content
-  .tab-pane.active id="personal"
+  .tab-pane id="personal"
     = render 'personal'
   .tab-pane id="subscriptions"
     = render 'subscriptions'
-  .tab-pane id="contacts"
+  .tab-pane.active id="contacts"
     = render 'contacts'
   .tab-pane id="messages"
     = render 'messages'

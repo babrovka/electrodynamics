@@ -41,5 +41,11 @@ module ApplicationHelper
   def cities
     Citi.all
   end
+  
+  def organization_title(user)
+    # if user.organization && Organization.exists?(user.organization) && user.organization.title
+      user.organization.title
+    # end
+  end
     
 end

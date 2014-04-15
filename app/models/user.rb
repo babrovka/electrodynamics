@@ -3,9 +3,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   attr_accessor :current_password
   attr_accessible :email, :password, :password_confirmation, :remember_me, :firstname, :lastname, 
-                  :role, :nickname, :current_password, :country_id, :city_id, :notice_configuration_attributes
+                  :role, :nickname, :current_password, :country_id, :city_id, :notice_configuration_attributes, :organization_id
                   
   has_one :notice_configuration
+  belongs_to :organization
   accepts_nested_attributes_for :notice_configuration, allow_destroy: true
   
   ROLES = %w[moderator user]

@@ -1,1 +1,28 @@
 h1 Контакты
+.row
+  .col-md-3
+    .checkbox
+      label
+        = check_box_tag :my_subscribers
+        |подписаны на меня
+  .col-md-3
+    .checkbox
+      label
+        = check_box_tag :to_whom_i_subscribed
+        |я подписан на них
+.row
+  .col-md-12
+    table.table.users_table
+      thead
+        td
+        td Организация
+        td Рейтинг
+      tbody
+        - users.each do |user|
+          tr
+            td 
+              h3 = link_to user.first_name_with_last_name, user
+            td 
+              = link_to organization_title(user), organization_path(user.organization.id)
+            td 
+              = user.id

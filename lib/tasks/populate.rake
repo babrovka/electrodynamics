@@ -4,12 +4,22 @@ require 'faker'
 
 namespace :create do
   desc "Create DB data"
+  
+  task :organizations => :environment do
+    Organization.destroy_all
+    Organization.populate 10 do |organization|
+      organization.title = Populator.words(1.2)
+      organization.index = (100..1000)
+    end
+    puts "Organizations created!"
+  end
+  
   task users: :environment do
     User.destroy_all
-    User.create!(:email => 'admin@example.com', :password => 'password', :password_confirmation => 'password', :firstname => 'admin', :lastname => 'admin')
-    User.create!(:email => 'babrovka@gmail.com', :password => 'password', :password_confirmation => 'password', :firstname => 'Вячеслав', :lastname => 'Бобров')
-    User.create!(:email => 'artemyan@gmail.com', :password => 'password', :password_confirmation => 'password', :firstname => 'Артем', :lastname => 'Санжаревский')
-    User.create!(:email => 'voffkaa@gmail.com', :password => 'password', :password_confirmation => 'password', :firstname => 'Владимир', :lastname => 'Кривенко')
+    User.create!(:email => 'admin@example.com', :password => 'password', :password_confirmation => 'password', :firstname => 'admin', :lastname => 'admin', :organization_id => Organization.pluck(:id).sample)
+    User.create!(:email => 'babrovka@gmail.com', :password => 'password', :password_confirmation => 'password', :firstname => 'Вячеслав', :lastname => 'Бобров', :organization_id => Organization.pluck(:id).sample)
+    User.create!(:email => 'artemyan@gmail.com', :password => 'password', :password_confirmation => 'password', :firstname => 'Артем', :lastname => 'Санжаревский', :organization_id => Organization.pluck(:id).sample)
+    User.create!(:email => 'voffkaa@gmail.com', :password => 'password', :password_confirmation => 'password', :firstname => 'Владимир', :lastname => 'Кривенко', :organization_id => Organization.pluck(:id).sample)
     puts "Users created!"
   end
   
@@ -27,15 +37,6 @@ namespace :create do
       category.title = Populator.words(1.2)
     end
     puts "Categories created!"
-  end
-  
-  task :organizations => :environment do
-    Organization.destroy_all
-    Organization.populate 10 do |organization|
-      organization.title = Populator.words(1.2)
-      organization.index = (100..1000)
-    end
-    puts "Organizations created!"
   end
   
   task :articles => :environment do
