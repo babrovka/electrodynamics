@@ -1,67 +1,18 @@
 .row
   .col-md-8
-    .nav.nav-tabs.nav-justified
-      = content_tag(:li, (link_to 'Личные'), :class => 'active')
-      = content_tag(:li, (link_to 'Подписки'))
-      = content_tag(:li, (link_to 'Мои контакты'))
-      = content_tag(:li, (link_to 'Мои сообщения'))
-= form_for(current_user, :url => registration_path(current_user), :html => { :method => :put }) do |f|
-  .row
-    .col-md-6
-        .row
-          .col-xs-8
-            h1 Профиль
-            = f.text_field :firstname, class: 'form-control', :placeholder => 'Имя'
-            = f.text_field :lastname, class: 'form-control', :placeholder => 'Фамилия'
-            = f.text_field :nickname, class: 'form-control', :placeholder => 'Никнейм'
-            h1 Местоположение
-        .row
-          .col-xs-4
-            = f.collection_select :country_id, Country.order(:name), :id, :name, {prompt: 'Страна'}, {:class => 'form-control'}
-          .col-xs-4
-             = f.grouped_collection_select :city_id, Country.order(:name), :cities, :name, :id, :name, {prompt: 'Выберите город'}, {:class => 'form-control'}
-        h1 Тип пользователя
-        .row
-         .col-xs-10
-           = f.select(:role, User::ROLES.map {|r| [ t(r), r]}, {:prompt => 'Выберите тип пользователя'}, { :class => 'form-control' })
-           .role_description
-    .col-md-6
-      = f.fields_for :notice_configuration do |n|
-        h1 Уведомления
-        .checkbox
-          label
-            = n.check_box :to_mailbox 
-            |На почтовый ящик
-        .checkbox
-          label
-            = n.check_box :to_personal_messages 
-            |В личные сообщения
-        h1 Отправлять мне уведомления
-        .checkbox
-          label
-            = n.check_box :about_new_messages 
-            |о новых сообщениях
-        .checkbox
-          label
-            = n.check_box :about_my_comment_reply 
-            |о новых ответах на мои комментарии
-        .checkbox
-          label
-            = n.check_box :about_my_reply_comments 
-            |о новых комментариях к моим ответам      
-        .checkbox
-          label
-            = n.check_box :about_mention_me 
-            |при упоминании меня в постах, вопросах или комментариях          
-        .checkbox
-          label
-            = n.check_box :about_new_subscriber 
-            |при добавлении нового подписчика
-            
+    ul.nav.nav-tabs.nav-justified
+      = content_tag(:li, (link_to 'Личные', '#personal', :data => { :toggle => 'tab' }), :class => 'active')
+      = content_tag(:li, (link_to 'Подписки', '#subscriptions', :data => { :toggle => 'tab' }))
+      = content_tag(:li, (link_to 'Мои контакты', '#contacts', :data => { :toggle => 'tab' }))
+      = content_tag(:li, (link_to 'Мои сообщения', '#messages', :data => { :toggle => 'tab' }))
 
-            
-            
-  .row
-    .col-md-12
-      = f.submit "Сохранить", :class => "btn btn-success "
-    
+
+.tab-content
+  .tab-pane.active id="personal"
+    = render 'personal'
+  .tab-pane id="subscriptions"
+    = render 'subscriptions'
+  .tab-pane id="contacts"
+    = render 'contacts'
+  .tab-pane id="messages"
+    = render 'messages'
