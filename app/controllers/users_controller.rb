@@ -6,6 +6,6 @@ class UsersController < ApplicationController
   end
   
   def personal
-    @notice_configuration = NoticeConfiguration.find_or_create_by_user_id(current_user.id)
+    current_user.build_notice_configuration unless current_user.notice_configuration
   end
 end

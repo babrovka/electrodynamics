@@ -26,11 +26,41 @@
            = f.select(:role, User::ROLES.map {|r| [ t(r), r]}, {:prompt => 'Выберите тип пользователя'}, { :class => 'form-control' })
            .role_description
     .col-md-6
-      h1 Уведомления
-      = @notice_configuration
-      .checkbox
-        label
-          checkbox
+      = f.fields_for :notice_configuration do |n|
+        h1 Уведомления
+        .checkbox
+          label
+            = n.check_box :to_mailbox 
+            |На почтовый ящик
+        .checkbox
+          label
+            = n.check_box :to_personal_messages 
+            |В личные сообщения
+        h1 Отправлять мне уведомления
+        .checkbox
+          label
+            = n.check_box :about_new_messages 
+            |о новых сообщениях
+        .checkbox
+          label
+            = n.check_box :about_my_comment_reply 
+            |о новых ответах на мои комментарии
+        .checkbox
+          label
+            = n.check_box :about_my_reply_comments 
+            |о новых комментариях к моим ответам      
+        .checkbox
+          label
+            = n.check_box :about_mention_me 
+            |при упоминании меня в постах, вопросах или комментариях          
+        .checkbox
+          label
+            = n.check_box :about_new_subscriber 
+            |при добавлении нового подписчика
+            
+
+            
+            
   .row
     .col-md-12
       = f.submit "Сохранить", :class => "btn btn-success "
