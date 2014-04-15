@@ -6,17 +6,32 @@
       = content_tag(:li, (link_to 'Мои контакты'))
       = content_tag(:li, (link_to 'Мои сообщения'))
 .row
-  = form_for(current_user, :url => registration_path(current_user), :html => { :method => :put }) do |f|
-    .col-xs-4
-      h1 Профиль
-      = f.text_field :firstname, class: 'form-control', :placeholder => 'Имя'
-      = f.text_field :lastname, class: 'form-control', :placeholder => 'Фамилия'
-      = f.text_field :nickname, class: 'form-control', :placeholder => 'Никнейм'
-      = f.submit "Сменить пароль", :class => "btn btn-default"
-      h1 Местоположение
+  .col-md-6
+    = form_for(current_user, :url => registration_path(current_user), :html => { :method => :put }) do |f|
+      .row
+        .col-xs-8
+          h1 Профиль
+          = f.text_field :firstname, class: 'form-control', :placeholder => 'Имя'
+          = f.text_field :lastname, class: 'form-control', :placeholder => 'Фамилия'
+          = f.text_field :nickname, class: 'form-control', :placeholder => 'Никнейм'
+          = f.submit "Сменить пароль", :class => "btn btn-default"
+          h1 Местоположение
       .row
         .col-xs-4
           = f.collection_select :country_id, Country.order(:name), :id, :name, {prompt: 'Страна'}, {:class => 'form-control'}
         .col-xs-4
            = f.grouped_collection_select :city_id, Country.order(:name), :cities, :name, :id, :name, {prompt: 'Выберите город'}, {:class => 'form-control'}
-      = f.submit "Сохранить", :class => "btn btn-success"
+      h1 Тип пользователя
+      .row
+       .col-xs-10
+         = f.select(:role, User::ROLES.map {|r| [ t(r), r]}, {:prompt => 'Выберите тип пользователя'}, { :class => 'form-control' })
+         .role_description
+      = f.submit "Сохранить", :class => "btn btn-success "
+  .col-md-6
+    h1 Уведомления
+    = @notice_configuration
+    .checkbox
+      label
+        checkbox
+
+    

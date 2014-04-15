@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   attr_accessor :current_password
   attr_accessible :email, :password, :password_confirmation, :remember_me, :firstname, :lastname, 
                   :role, :nickname, :current_password, :country_id, :city_id
+                  
+  has_one :notice_configuration
   
   ROLES = %w[moderator user]
   

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140414161306) do
+ActiveRecord::Schema.define(:version => 20140414172229) do
 
   create_table "article_tags", :force => true do |t|
     t.integer  "article_id"
@@ -54,6 +54,20 @@ ActiveRecord::Schema.define(:version => 20140414161306) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "notice_configurations", :force => true do |t|
+    t.integer  "user_id"
+    t.boolean  "to_mailbox",              :default => false
+    t.boolean  "boolean",                 :default => false
+    t.boolean  "to_personal_messages",    :default => false
+    t.boolean  "about_new_messages",      :default => false
+    t.boolean  "about_my_comment_reply",  :default => false
+    t.boolean  "about_my_reply_comments", :default => false
+    t.boolean  "about_mention_me",        :default => false
+    t.boolean  "about_new_subscriber",    :default => false
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
   end
 
   create_table "organizations", :force => true do |t|
