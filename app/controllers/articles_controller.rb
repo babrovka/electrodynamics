@@ -1,5 +1,7 @@
 class ArticlesController < InheritedResources::Base
   
+  before_filter :all_articles, :only => [:new, :by_category, :by_organizations]
+  
   def index 
     case true
     when params[:category].present?
@@ -12,7 +14,12 @@ class ArticlesController < InheritedResources::Base
   end
   
   def news
-    @articles = Article.all
+  end
+  
+  def by_category
+  end
+  
+  def by_organizations
   end
   
   def show 
@@ -21,5 +28,8 @@ class ArticlesController < InheritedResources::Base
     @articles = Article.includes(:tags).where(:tags => {:id => @article.tags})
   end
   
+  def all_articles
+    @articles = Article.all
+  end
   
 end

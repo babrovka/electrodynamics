@@ -5,7 +5,12 @@ Electrodynamics::Application.routes.draw do
   end
   resources :organizations
   resources :comments
-  resources :articles
+  resources :articles do 
+    collection do
+      get 'by_category'
+      get 'by_organizations'
+    end
+  end
   match '/news' => 'articles#news', as: :news
   root :to => 'articles#index'
   ActiveAdmin.routes(self)

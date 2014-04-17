@@ -1,0 +1,4 @@
+.nav.nav-tabs.nav-justified
+  = content_tag(:li, (link_to 'Лучшие', articles_path), :class => (action?('index') ? 'active' : nil ))
+  = content_tag(:li, (link_to 'По категории', by_category_articles_path), :class => (action?('by_category') ? 'active' : nil ))
+  = content_tag(:li, (link_to 'Организации', by_organizations_articles_path), :class => (action?('by_organizations') ? 'active' : nil ))
