@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140417112943) do
+ActiveRecord::Schema.define(:version => 20140418133755) do
 
   create_table "article_tags", :force => true do |t|
     t.integer  "article_id"
@@ -46,14 +46,37 @@ ActiveRecord::Schema.define(:version => 20140417112943) do
     t.text     "comment"
     t.integer  "author_id"
     t.integer  "article_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "document_id"
   end
 
   create_table "countries", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "document_tags", :force => true do |t|
+    t.integer  "document_id"
+    t.integer  "tag_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "documents", :force => true do |t|
+    t.string   "title"
+    t.text     "text"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "employes", :force => true do |t|

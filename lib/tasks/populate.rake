@@ -76,6 +76,28 @@ namespace :create do
     puts "Articles created!"
   end
   
+  task :documents => :environment do
+    Document.destroy_all
+    Document.populate 30 do |document|
+      document.title = Populator.words(1.2)
+      document.text = Populator.sentences(7..15)
+    end
+    puts "Documents created!"
+    
+    Document.all.each do |document|
+      users = User.where('firstname != ?', 'admin')
+      document.image = File.open(Dir.glob(File.join(Rails.root, 'covers', '*')).sample)
+      document.file = File.open(Dir.glob(File.join(Rails.root, 'docs', '*')).sample)
+      document.save!
+      document.tags << Tag.all.sample
+      Comment.populate(3..7) do |comment|
+        comment.document_id = document.id
+        comment.author_id = users.sample
+        comment.comment = Populator.sentences(1..3)
+      end
+    end
+  end
+  
   task :countries_and_cities => :environment do
     
     Country.destroy_all

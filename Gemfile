@@ -16,6 +16,7 @@ gem 'slim'
 gem 'simple_form'
 gem 'chosen-rails'
 gem "squeel"
+gem 'paperclip'
 
 
 group :assets do
