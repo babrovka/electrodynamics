@@ -1,0 +1,15 @@
+.row
+  .col-md-9
+    = render 'tabs'
+    .tab-content
+      .tab-pane.active id="mine"
+        - if user_signed_in?
+          = render @mine
+        - else
+          br
+          br
+          h5 Вы не авторизованы в системе
+      .tab-pane id="all"
+        = render @articles
+  .col-md-3
+    = render 'shared/articles', :heading => 'Что обсуждают', :@articles => side_articles

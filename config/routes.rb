@@ -5,6 +5,7 @@ Electrodynamics::Application.routes.draw do
   end
   resources :organizations
   resources :comments
+  resources :blogs
   resources :articles do 
     collection do
       get 'by_category'

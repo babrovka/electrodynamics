@@ -1,0 +1,3 @@
+ul.nav.nav-tabs.nav-justified
+  = content_tag(:li, (link_to 'Записи', '#mine', :data => { :toggle => 'tab' }), :class => 'active')
+  = content_tag(:li, (link_to 'Профиль', '#all', :data => { :toggle => 'tab' }))
