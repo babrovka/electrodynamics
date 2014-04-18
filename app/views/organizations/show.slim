@@ -12,15 +12,15 @@
 .row
   .col-md-9
     ul.nav.nav-tabs.nav-justified
-      = content_tag(:li, (link_to 'Записи', '#articles', :data => { :toggle => 'tab' }))
-      = content_tag(:li, (link_to 'Профиль', '#profile', :data => { :toggle => 'tab' }, :class => 'active'))
+      = content_tag(:li, (link_to 'Записи', '#articles', :data => { :toggle => 'tab' }), :class => 'active')
+      = content_tag(:li, (link_to 'Профиль', '#profile', :data => { :toggle => 'tab' }))
       = content_tag(:li, (link_to 'Вакансии', '#vacancies', :data => { :toggle => 'tab' }))
       = content_tag(:li, (link_to 'События', '#events', :data => { :toggle => 'tab' }))
   .col-md-9
     .tab-content
-      .tab-pane id="articles"
+      .tab-pane.active id="articles"
         = render @articles
-      .tab-pane.active id="profile"
+      .tab-pane id="profile"
         = render 'profile'
       .tab-pane id="vacancies"
         = render 'vacancies'
