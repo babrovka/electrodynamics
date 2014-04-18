@@ -1,0 +1,32 @@
+.row
+  .col-md-9
+    h1 = @document.title
+    span тэги: 
+    - @document.tags.each do |tag|
+      = (link_to tag.title, '#') + ' '
+    br
+    br    
+    span.label.label-warning Книга
+    span.label.label-success Наука
+    .document_text
+      = image_tag @document.image.url(:thumb)
+      = @document.text
+    = link_to 'Скачать', '#', :class => 'btn btn-primary'
+    ul.media-list
+    h3 Комментарии (#{@document.comments.count})
+    - @document.comments.each do |comment|
+      .media
+        a.pull-left href="#"
+          img.media-object src="/assets/64.svg" alt="..."
+        .media-body
+          h4.media-heading #{link_to comment.author.first_name_with_last_name, "#"}, #{date_with_month(comment.created_at)} #{link_to_delete_comment(current_user, comment) if user_signed_in? }
+          = comment.comment
+    - if user_signed_in?
+      h3 Оставить свой комментарий
+      = form_for @comment do |f|
+        = f.text_area :comment, class: 'form-control', rows: 3
+        = f.hidden_field :author_id, :value => (current_user.id if current_user)
+        = f.hidden_field :article_id, :value => @document.id 
+        = f.submit "Отправить", :class => "btn btn-primary"
+  .col-md-3
+    = render 'shared/articles', :heading => 'Похожие статьи'

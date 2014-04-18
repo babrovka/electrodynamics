@@ -13,9 +13,15 @@
 	margin-bottom: 50px;
 }
 
-.article_text {
+.article_text, .document_text {
 	margin-top: 10px;
 	margin-bottom: 20px;
+}
+
+.document_text img {
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 10px;
 }
 
 #new_comment input[type="submit"], #new_article input[type="submit"] {
@@ -79,8 +85,16 @@
 #configure_news_list {
 	margin-bottom: 40px;
 }
-.users_table h1 {
-	
+.documents_table h3 {
+	margin-top: 0px;
+}
+.documents_table h3 a {
+	color: black;
+	text-decoration: underline;
+}
+
+.documents_table span.label {
+	margin-right: 10px;
 }
 .organization_profile {
 	margin-top: 30px;
