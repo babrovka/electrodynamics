@@ -15,6 +15,7 @@ gem 'bootstrap-sass', '~> 3.1.1'
 gem 'slim'
 gem 'simple_form'
 gem 'chosen-rails'
+gem "squeel"
 
 
 group :assets do

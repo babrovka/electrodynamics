@@ -8,8 +8,16 @@ namespace :create do
   task :organizations => :environment do
     Organization.destroy_all
     Organization.populate 10 do |organization|
+      country = Country.with_cities.sample
+      city = country.cities.sample
       organization.title = Populator.words(1.2)
       organization.index = (100..1000)
+      organization.establish_date = Date.today - rand(2000)
+      organization.site = Faker::Internet.domain_name
+      organization.country_id = country.id
+      organization.city_id = city.id
+      organization.employees
+      organization.about = Populator.sentences(20..40)
     end
     puts "Organizations created!"
   end

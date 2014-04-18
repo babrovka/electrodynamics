@@ -11,11 +11,20 @@
     = link_to "Подписаться", "#", :class => 'btn btn-primary' 
 .row
   .col-md-9
-    .nav.nav-tabs.nav-justified
-      = content_tag(:li, (link_to 'Записи'), :class => 'active')
-      = content_tag(:li, (link_to 'Профиль'))
-      = content_tag(:li, (link_to 'Вакансии'))
-      = content_tag(:li, (link_to 'События'))
-    = render @articles
+    ul.nav.nav-tabs.nav-justified
+      = content_tag(:li, (link_to 'Записи', '#articles', :data => { :toggle => 'tab' }))
+      = content_tag(:li, (link_to 'Профиль', '#profile', :data => { :toggle => 'tab' }, :class => 'active'))
+      = content_tag(:li, (link_to 'Вакансии', '#vacancies', :data => { :toggle => 'tab' }))
+      = content_tag(:li, (link_to 'События', '#events', :data => { :toggle => 'tab' }))
+  .col-md-9
+    .tab-content
+      .tab-pane id="articles"
+        = render @articles
+      .tab-pane.active id="profile"
+        = render 'profile'
+      .tab-pane id="vacancies"
+        = render 'vacancies'
+      .tab-pane id="events"
+        = render 'events'
   .col-md-3
     = render 'shared/right_panel'

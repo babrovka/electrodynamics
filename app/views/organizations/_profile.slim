@@ -1,0 +1,39 @@
+.row.organization_profile
+  .col-md-11
+    dl.dl-horizontal
+      dt Дата основания
+      dd = date_without_time(@organization.created_at)
+      dt Сайт
+      dd = link_to @organization.site
+      dt Отрасли
+      dd Веб-сервисы, Игры и развлечения
+      dt Местоположение
+      dd #{country(@organization.country_id)}, #{city(@organization.country_id)}
+      dt Численность
+      dd свыше 1000 человек
+      dt О компании
+      dd = @organization.about
+      dt Руководство
+      dd 
+        b Дмитрий Гришин
+        |&nbsp— соучредитель и генеральный директор 
+        br
+        b Анна Артамонова
+        |&nbsp— вице-президент по стратегическим проектам
+        br
+        b Алексей Катков
+        |&nbsp— вице-президент
+        br
+        b Владимир Габриелян
+        |&nbsp— руководитель юридического департамента
+      dt 
+        |Сотрудники
+        br
+        |на портале (#{@organization.users.count})
+      dd 
+        - @organization.users.each do |user|
+          = link_to user.first_name_with_last_name, user_path(user)
+      dt Дата регистрации
+      dd = date_without_time(@organization.establish_date)
+          
+        

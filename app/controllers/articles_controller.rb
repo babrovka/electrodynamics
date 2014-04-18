@@ -1,16 +1,8 @@
 class ArticlesController < InheritedResources::Base
   
-  before_filter :all_articles, :only => [:new, :by_category, :by_organizations]
+  before_filter :all_articles, :only => [:index, :news, :by_category, :by_organizations]
   
   def index 
-    case true
-    when params[:category].present?
-      @articles = Article.where(:category_id => params[:category])
-    when params[:tag].present?
-      @articles = Article.includes(:tags).where(:tags => {:id => params[:tag]})
-    else
-      @articles = Article.all
-    end
   end
   
   def news
@@ -29,7 +21,14 @@ class ArticlesController < InheritedResources::Base
   end
   
   def all_articles
-    @articles = Article.all
+    case true
+    when params[:category].present?
+      @articles = Article.where(:category_id => params[:category])
+    when params[:tag].present?
+      @articles = Article.includes(:tags).where(:tags => {:id => params[:tag]})
+    else
+      @articles = Article.all
+    end
   end
   
 end

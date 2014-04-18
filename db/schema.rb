@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140415133153) do
+ActiveRecord::Schema.define(:version => 20140417112943) do
 
   create_table "article_tags", :force => true do |t|
     t.integer  "article_id"
@@ -56,6 +56,15 @@ ActiveRecord::Schema.define(:version => 20140415133153) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "employes", :force => true do |t|
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "position"
+    t.string   "organization_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
   create_table "notice_configurations", :force => true do |t|
     t.integer  "user_id"
     t.boolean  "to_mailbox",              :default => false
@@ -73,8 +82,14 @@ ActiveRecord::Schema.define(:version => 20140415133153) do
   create_table "organizations", :force => true do |t|
     t.string   "title"
     t.integer  "index"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.date     "establish_date"
+    t.string   "site"
+    t.string   "country_id"
+    t.string   "city_id"
+    t.string   "employees"
+    t.text     "about"
   end
 
   create_table "tags", :force => true do |t|

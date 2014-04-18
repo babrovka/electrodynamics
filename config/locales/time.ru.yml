@@ -1,4 +1,9 @@
 ru:
+  date:
+    formats:
+      with_month: "%d %B %y в %H:%M"
+      without_time: "%d %B %Y"
   time:
     formats:
       with_month: "%d %B %y в %H:%M"
+      without_time: "%d %B %Y"
