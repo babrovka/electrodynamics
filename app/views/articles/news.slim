@@ -1,9 +1,18 @@
 .row
   .col-md-9
-    .nav.nav-tabs.nav-justified
-      = content_tag(:li, (link_to 'Моя подборка'), :class => 'active')
-      = content_tag(:li, (link_to 'Все новости'))
-    = render @articles
+    ul.nav.nav-tabs.nav-justified
+      = content_tag(:li, (link_to 'Моя подборка', '#mine', :data => { :toggle => 'tab' }), :class => 'active')
+      = content_tag(:li, (link_to 'Все новости', '#all', :data => { :toggle => 'tab' }))
+    .tab-content
+      .tab-pane.active id="mine"
+        - if user_signed_in?
+          = render @mine
+        - else
+          br
+          br
+          h5 Вы не авторизованы в системе
+      .tab-pane id="all"
+          = render @articles
   .col-md-3
     = link_to 'Настроить ленту новостей', '#', :class => 'btn btn-primary', :id => 'configure_news_list' 
     = render 'shared/articles', :heading => 'Лучшие', :@articles => side_articles

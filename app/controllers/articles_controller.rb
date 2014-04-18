@@ -6,6 +6,8 @@ class ArticlesController < InheritedResources::Base
   end
   
   def news
+    @articles = Article.all
+    @mine = Article.where(:author_id => current_user.id) if user_signed_in?
   end
   
   def by_category

@@ -1,5 +1,4 @@
 $(document).ready(function(){
-	
 	// user role description
 	$("#user_role").on("change", function(){
 		switch(this.value)
@@ -17,7 +16,8 @@ $(document).ready(function(){
 		}
 	});
 	
+	$('label.tree-toggler').click(function () {
+		$(this).parent().children('ul.tree').toggle(300);
+	});
 	
-	
-
 });
