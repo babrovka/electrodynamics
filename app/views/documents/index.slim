@@ -1,5 +1,16 @@
 .row
   .col-md-9
-    = render @documents
+    h3 Все документы на тему: #{link_to 'производство'} > монтаж 
+    table.table.users_table
+      thead
+        td Название
+        td Просмотров
+      tbody
+        - @documents.each do |document|
+          tr
+            td 
+              h3 = link_to document.title, document
+            td #{Array(213..32131).sample}
   .col-md-3
     = render 'shared/tree'
+    = render 'shared/tags'

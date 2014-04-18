@@ -1,0 +1,6 @@
+.jumbotron
+  h4 Искать по тэгам
+  = select_tag "tags", options_from_collection_for_select(Tag.all, :id, :title), multiple: true, :class => 'chosen-mini', :data => {:placeholder => 'Выберите тэг', :width => '200px'}
+  br
+  br
+  

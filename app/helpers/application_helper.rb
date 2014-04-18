@@ -46,6 +46,10 @@ module ApplicationHelper
     Citi.all
   end
   
+  def tags
+    Tag.all
+  end
+  
   def organization_title(user)
     # if user.organization && Organization.exists?(user.organization) && user.organization.title
       user.organization.title
