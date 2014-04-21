@@ -11,6 +11,7 @@
               span.caret
             ul.dropdown-menu
               li = link_to 'личный кабинет', personal_user_path(current_user)
+              li = link_to 'моя страница', user_path(current_user)
               li = link_to 'выйти', destroy_user_session_path
         - else 
           li = link_to 'войти', new_user_session_path
