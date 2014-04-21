@@ -1,0 +1,22 @@
+.slider
+  h1 Электродинамика — это круто!
+  p Краткое описание, что это за сайт и для кого
+  p Или промо-реклама
+  
+.row
+  .col-md-3
+    h4 Новости
+    - @articles.each do |article|
+      = link_to article.title, article
+      .similar_article_date = article.created_at.strftime('%d.%m.%y')
+  .col-md-5
+    h4 Интересные события
+    - @event.each do |article|
+      = link_to article.title, article
+      .similar_article_date = article.created_at.strftime('%d.%m.%y')
+  .col-md-3
+    h4 Самое популярное
+    - @best.each do |article|
+      = link_to article.title, article
+      .similar_article_date = article.created_at.strftime('%d.%m.%y')
+    
