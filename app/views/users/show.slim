@@ -16,7 +16,7 @@
     h4 Работает в организациях: Роскосмос, Centrobit
     h3 Контакты недоступны.
     p Пользователь ограничил доступ к контактной информации, она видна только списку контактов пользователя Александр Зейников
-    - unless request.fullpath == user_path(current_user)
+    - unless request.fullpath == user_path(@user)
       = link_to '+ Добавить в свои контакты', '#', :class => 'btn btn-primary'
       .pull-right
         = link_to 'Написать личное сообщение', '#', :class => 'btn btn-primary'
