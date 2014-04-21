@@ -2,8 +2,9 @@
   .col-md-1
     = image_tag('/assets/user_pic.jpg')
   .col-md-8
-    .pull-right
-      = link_to 'Подписаться', '#', :class => 'btn btn-primary'
+    - unless request.fullpath == user_path(current_user)
+      .pull-right
+        = link_to 'Подписаться', '#', :class => 'btn btn-primary'
     h2 = @user.first_name_with_last_name
     h3 276-й в рейтинге
     h4 Дата рождения: 2 декабря 1980

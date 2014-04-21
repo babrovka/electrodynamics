@@ -1,7 +1,7 @@
 .article
   span = article.created_at.strftime('%d.%m.%y %H:%M') 
   span = ', автор '
-  = link_to article.author.first_name_with_last_name, '#' if article.author
+  = link_to article.author.first_name_with_last_name, user_path(article.author) if article.author
   h1 = article.title
   span тэги: 
   - article.tags.each do |tag|
