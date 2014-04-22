@@ -1,5 +1,5 @@
 class InviteMailer < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "test@cyclonelabs.com"
   
   def send_invite(invite)
     @email = invite.email

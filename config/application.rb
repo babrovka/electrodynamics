@@ -1,6 +1,7 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
+require 'yaml'
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
@@ -68,11 +69,19 @@ module Electrodynamics
     # in your app. As such, your models will need to explicitly whitelist or blacklist accessible
     # parameters by using an attr_accessible or attr_protected declaration.
     config.active_record.whitelist_attributes = true
+    
+    mail_conf_path = 'config/mail.yml'
+    mail_config = File.exists?(mail_conf_path) ? YAML::load_file(mail_conf_path).symbolize_keys : {}
 
     # Enable the asset pipeline
     config.assets.enabled = true
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    
+    config.action_mailer.default_url_options = { host: "sakedev.kzsspb.ru" }
+    config.action_mailer.delivery_method = :smtp
+
+    config.action_mailer.smtp_settings = mail_config
   end
 end
