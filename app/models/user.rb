@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
   belongs_to :organization
   accepts_nested_attributes_for :notice_configuration, allow_destroy: true
   
+  has_many :user_invites
+  has_many :invites, through: :user_invites
+  
   ROLES = %w[moderator user]
   
 

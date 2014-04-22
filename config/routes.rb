@@ -7,6 +7,7 @@ Electrodynamics::Application.routes.draw do
   resources :comments
   resources :blogs
   resources :documents
+  resources :invites
   resources :articles do 
     collection do
       get 'by_category'

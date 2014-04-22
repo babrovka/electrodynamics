@@ -12,5 +12,6 @@ class UsersController < ApplicationController
   
   def personal
     current_user.build_notice_configuration unless current_user.notice_configuration
+    @invite = Invite.new
   end
 end
