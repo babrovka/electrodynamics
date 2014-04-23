@@ -12,8 +12,9 @@ class User < ActiveRecord::Base
   has_many :user_invites
   has_many :invites, through: :user_invites
   
-  validates :firstname, :lastname, :nickname, :role, :token, :presence => true
-  validate :validates_token_is_correct
+  validates :firstname, :lastname, :nickname, :role, :presence => true
+  validates :token, :presence => true, :on => :create
+  validate :validates_token_is_correct, :on => :create
   
   ROLES = %w[admin moderator user]
   
