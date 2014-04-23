@@ -1,3 +1,5 @@
+# coding: utf-8
+
 class InviteMailer < ActionMailer::Base
   default from: "test@cyclonelabs.com"
   
@@ -5,6 +7,6 @@ class InviteMailer < ActionMailer::Base
     @email = invite.email
     @token = invite.token
 
-    mail to: invite.email
+    mail to: invite.email, :subject => "инвайт на сайт electrodynamicsru"
   end
 end

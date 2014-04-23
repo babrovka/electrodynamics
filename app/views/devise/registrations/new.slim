@@ -4,7 +4,9 @@
       h1 Личные данные
       .row
         .col-xs-8
+          = devise_error_messages!
           = f.email_field :email, class: 'form-control', :autofocus => true, :placeholder => 'Электронная почта'
+          = f.text_field :token, class: 'form-control', :placeholder => 'Токен из инвайта'
           = f.text_field :firstname, class: 'form-control', :placeholder => 'Имя'
           = f.text_field :lastname, class: 'form-control', :placeholder => 'Фамилия'
           = f.text_field :nickname, class: 'form-control', :placeholder => 'Никнейм'

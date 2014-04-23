@@ -13,3 +13,5 @@ ru:
         firstname: Имя
         lastname: Фамилия
         role: Тип пользователя
+        password: Пароль
+        token: Токен

@@ -1,4 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
+  
+  
   def update
     account_update_params = params[:user]
 

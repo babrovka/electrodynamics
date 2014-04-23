@@ -23,6 +23,6 @@ h1 Контакты
             td 
               h3 = link_to user.first_name_with_last_name, user
             td 
-              = link_to organization_title(user), organization_path(user.organization.id)
+              = user.organization_id ? (link_to organization_title(user), organization_path(user.organization.id)) : nil
             td 
               = user.id

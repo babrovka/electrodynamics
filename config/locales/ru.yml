@@ -1,4 +1,5 @@
 ru:
+  token_is_incorrect: "не соответсвует"
   invite_sent: "Инвайт отправлен"
   admin: "Администратор"
   moderator: "Модератор"

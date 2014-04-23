@@ -23,6 +23,12 @@ task :copy_database_config do
    run "cp #{db_config} #{latest_release}/config/database.yml"
 end
 
+task :copy_database_config do
+   db_config = "#{shared_path}/mail.yml"
+   run "cp #{db_config} #{latest_release}/config/mail.yml"
+end
+
+
 namespace :deploy do
   namespace :assets do
     task :precompile, :roles => :web, :except => { :no_release => true } do

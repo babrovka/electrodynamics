@@ -1,7 +1,11 @@
 .row
   .col-xs-4
     h1 Инвайты
-    = form_for @invite do |f|
-      = f.text_field :email, class: 'form-control', :placeholder => 'email'
-      br
-      = f.submit "Отправить", :class => "btn btn-primary"
+    - if current_user.has_invites
+      p Доступное количество инвайтов – #{current_user.invite_qty}
+      = form_for @invite do |f|
+        = f.text_field :email, class: 'form-control', :placeholder => 'email'
+        br
+        = f.submit "Отправить", :class => "btn btn-primary"
+    -else
+      p У вас не осталось инвайтов
