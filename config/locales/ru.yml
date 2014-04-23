@@ -1,4 +1,5 @@
 ru:
+  invite_already_sent_for_this_email: "Инвайт для этого почтового ящика уже существует"
   infinite_qty: "Неограниченное количество"
   token_is_incorrect: "не соответсвует"
   invite_sent: "Инвайт отправлен"

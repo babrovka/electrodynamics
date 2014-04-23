@@ -3,4 +3,6 @@ class Invite < ActiveRecord::Base
   
   has_many :user_invites
   has_many :users, through: :user_invites
+  
+  validates :email, :uniqueness => true
 end
