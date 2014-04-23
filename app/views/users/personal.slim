@@ -1,17 +1,17 @@
 .row
   .col-md-9
     ul.nav.nav-tabs
-      = content_tag(:li, (link_to 'Личные', '#personal', :data => { :toggle => 'tab' }))
+      = content_tag(:li, (link_to 'Личные', '#personal', :data => { :toggle => 'tab' }), :class => 'active')
       = content_tag(:li, (link_to 'Подписки', '#subscriptions', :data => { :toggle => 'tab' }))
       = content_tag(:li, (link_to 'Мои контакты', '#contacts', :data => { :toggle => 'tab' }))
       = content_tag(:li, (link_to 'Мои сообщения', '#messages', :data => { :toggle => 'tab' }))
       = content_tag(:li, (link_to 'Инвайты', '#invites', :data => { :toggle => 'tab' }))
       - if current_user.admin?
         = content_tag(:li, (link_to 'Пользователи', '#users', :data => { :toggle => 'tab' }))
-        = content_tag(:li, (link_to 'Статьи', '#articles', :data => { :toggle => 'tab' }), :class => 'active')
+        = content_tag(:li, (link_to 'Статьи', '#articles', :data => { :toggle => 'tab' }))
 
 .tab-content
-  .tab-pane id="personal"
+  .tab-pane.active id="personal"
     = render 'personal'
   .tab-pane id="subscriptions"
     = render 'subscriptions'
@@ -21,7 +21,8 @@
     = render 'messages'
   .tab-pane id="invites"
     = render 'invites'
-  .tab-pane id="users"
-    = render 'users'
-  .tab-pane.active id="articles"
-    = render 'articles'
+  - if current_user.admin?
+    .tab-pane id="users"
+      = render 'users'
+    .tab-pane id="articles"
+      = render 'articles'
