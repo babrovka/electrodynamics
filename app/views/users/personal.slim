@@ -1,12 +1,14 @@
 .row
-  .col-md-8
-    ul.nav.nav-tabs.nav-justified
+  .col-md-9
+    ul.nav.nav-tabs
       = content_tag(:li, (link_to 'Личные', '#personal', :data => { :toggle => 'tab' }))
       = content_tag(:li, (link_to 'Подписки', '#subscriptions', :data => { :toggle => 'tab' }))
       = content_tag(:li, (link_to 'Мои контакты', '#contacts', :data => { :toggle => 'tab' }))
       = content_tag(:li, (link_to 'Мои сообщения', '#messages', :data => { :toggle => 'tab' }))
-      = content_tag(:li, (link_to 'Инвайты', '#invites', :data => { :toggle => 'tab' }), :class => 'active')
-
+      = content_tag(:li, (link_to 'Инвайты', '#invites', :data => { :toggle => 'tab' }))
+      - if current_user.admin?
+        = content_tag(:li, (link_to 'Пользователи', '#users', :data => { :toggle => 'tab' }))
+        = content_tag(:li, (link_to 'Статьи', '#articles', :data => { :toggle => 'tab' }), :class => 'active')
 
 .tab-content
   .tab-pane id="personal"
@@ -17,5 +19,9 @@
     = render 'contacts'
   .tab-pane id="messages"
     = render 'messages'
-  .tab-pane.active id="invites"
+  .tab-pane id="invites"
     = render 'invites'
+  .tab-pane id="users"
+    = render 'users'
+  .tab-pane.active id="articles"
+    = render 'articles'

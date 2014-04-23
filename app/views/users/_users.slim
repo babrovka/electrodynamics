@@ -1,0 +1,24 @@
+h1 Пользователи
+.row
+  .col-md-12
+    table.table.users_table
+      thead
+        td Имя
+        td Email
+        td Роль
+        td
+        td
+        td
+      tbody
+        - User.all.each do |user|
+          tr
+            td 
+              h5 = link_to user.first_name_with_last_name, user
+            td 
+              = user.email
+            td 
+              #{link_to "Одобрить"} / #{link_to "Отклонить"}
+            td 
+              #{link_to "Сменить роль"}
+            td 
+              #{link_to "Заблокировать"}

@@ -24,10 +24,10 @@ namespace :create do
   
   task users: :environment do
     User.destroy_all
-    User.create!(:email => 'admin@example.com', :password => 'password', :password_confirmation => 'password', :firstname => 'admin', :lastname => 'admin', :organization_id => Organization.pluck(:id).sample)
-    User.create!(:email => 'babrovka@gmail.com', :password => 'password', :password_confirmation => 'password', :firstname => 'Вячеслав', :lastname => 'Бобров', :organization_id => Organization.pluck(:id).sample)
-    User.create!(:email => 'artemyan@gmail.com', :password => 'password', :password_confirmation => 'password', :firstname => 'Артем', :lastname => 'Санжаревский', :organization_id => Organization.pluck(:id).sample)
-    User.create!(:email => 'voffkaa@gmail.com', :password => 'password', :password_confirmation => 'password', :firstname => 'Владимир', :lastname => 'Кривенко', :organization_id => Organization.pluck(:id).sample)
+    User.new(:email => 'admin@example.com', :password => 'password', :password_confirmation => 'password', :firstname => 'admin', :lastname => 'admin', :organization_id => Organization.pluck(:id).sample, :role => 'admin', :nickname => 'admin').save(:validate => false)
+    User.new(:email => 'babrovka@gmail.com', :password => 'password', :password_confirmation => 'password', :firstname => 'Вячеслав', :lastname => 'Бобров', :organization_id => Organization.pluck(:id).sample, :role => 'user', :nickname => 'babrovka').save(:validate => false)
+    User.new(:email => 'artemyan@gmail.com', :password => 'password', :password_confirmation => 'password', :firstname => 'Артем', :lastname => 'Санжаревский', :organization_id => Organization.pluck(:id).sample, :role => 'user', :nickname => 'artemyan').save(:validate => false)
+    User.new(:email => 'voffkaa@gmail.com', :password => 'password', :password_confirmation => 'password', :firstname => 'Владимир', :lastname => 'Кривенко', :organization_id => Organization.pluck(:id).sample, :role => 'user', :nickname => 'voffkaa').save(:validate => false)
     puts "Users created!"
   end
   

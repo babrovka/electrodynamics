@@ -10,6 +10,9 @@ $(document).ready(function(){
 		case 'moderator':
 		  $('.role_description').html('<p>Модератор может:</p><ul><li>— Назначать категорию статье</li></ul>')
 		  break;
+		case 'admin':
+		  $('.role_description').html('<p>Администратор может:</p><ul><li>— Назначать категорию статье</li><li>— Имеет неограниченное количество инвайтов</li></ul>')
+		  break;
 		case '':
 		  $('.role_description').html('')
 		  break;

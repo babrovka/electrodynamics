@@ -15,12 +15,16 @@ class User < ActiveRecord::Base
   validates :firstname, :lastname, :nickname, :role, :token, :presence => true
   validate :validates_token_is_correct
   
-  ROLES = %w[moderator user]
+  ROLES = %w[admin moderator user]
+  
+  def admin?
+    self.role == "admin" 
+  end
   
   def validates_token_is_correct
     invite = Invite.find_by_email(self.email)
     errors.add(:token, I18n.t("token_is_incorrect")) unless
-    invite.token == self.token
+    invite && invite.token == self.token
   end
     
 
@@ -29,10 +33,14 @@ class User < ActiveRecord::Base
   end
   
   def invite_qty
-    5 - self.invites.count
+    if self.role == "admin" 
+      I18n.t('infinite_qty')
+    else
+      5 - self.invites.count
+    end
   end
   
   def has_invites
-    self.invites.count < 5 
+    self.invites.count < 5 || self.role == "admin" 
   end
 end

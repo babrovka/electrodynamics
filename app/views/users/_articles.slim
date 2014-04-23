@@ -1,0 +1,17 @@
+h1 Статьи
+.row
+  .col-md-12
+    table.table.users_table
+      thead
+        td Название
+        td Категория
+        td
+      tbody
+        - Article.all.each do |article|
+          tr
+            td 
+              h5 = link_to article.title, article
+            td 
+              = %w[статьи блог].sample
+            td 
+              |Переназначить категорию
