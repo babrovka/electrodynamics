@@ -4,8 +4,7 @@ h1 Статьи
     table.table.users_table
       thead
         td Название
-        td Категория
-        td
+        td collspan=2 Категория 
       tbody
         - Article.all.each do |article|
           tr
@@ -14,4 +13,4 @@ h1 Статьи
             td 
               = %w[статьи блог].sample
             td 
-              |Переназначить категорию
+              = link_to "Переназначить категорию", "#"
