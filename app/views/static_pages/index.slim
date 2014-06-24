@@ -1,7 +1,7 @@
-.slider
-  h1 Электродинамика — это круто!
-  p Краткое описание, что это за сайт и для кого
-  p Или промо-реклама
+- if user_signed_in?
+  = render 'slider'
+- else
+  = render 'panel'
   
 .row
   .col-md-3

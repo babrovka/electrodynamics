@@ -1,0 +1,15 @@
+.panel
+  .row 
+    .col-md-8
+      .row
+      - @tags.each do |tag|
+        .col-md-4
+          .tag_area
+            .grey_tag
+            h4 = link_to tag.title, '#'
+           
+        
+    .col-md-4
+      = image_tag('baloon1.png', :class => 'baloon_img')
+      = image_tag('baloon2.png')
+    
