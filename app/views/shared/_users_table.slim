@@ -1,0 +1,16 @@
+.row
+  .col-md-12
+    table.table.users_table
+      thead
+        td
+        td Организация
+        td Рейтинг
+      tbody
+        - users.each do |user|
+          tr
+            td 
+              h3 = link_to user.first_name_with_last_name, user
+            td 
+              = user.organization_id ? (link_to organization_title(user), organization_path(user.organization.id)) : nil
+            td 
+              = user.id
