@@ -1,8 +1,14 @@
 .topmenu
   .row
-    .col-md-9.logo 
+    .col-md-4.logo 
       = link_to root_path do
         h4 Electrodynamics.ru
+    .col-md-5
+      form.form-inline
+        .form-group
+          input.form-control placeholder="Умный поиск по сайту"
+        button.btn.btn-primary.with_left_indent type="submit" Искать
+        
     .col-md-3
       ul.nav.nav-pills
         - if user_signed_in? 
