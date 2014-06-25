@@ -1,0 +1,14 @@
+.row
+  .col-md-8
+    ul.nav.nav-tabs.nav-justified
+      = content_tag(:li, (link_to 'По алфавиту', '#alphabet', :data => { :toggle => 'tab' }), :class => 'active')
+      = content_tag(:li, (link_to 'По рубрике', '#category', :data => { :toggle => 'tab' }))
+      = content_tag(:li, (link_to 'Расширенный поиск', '#advanced', :data => { :toggle => 'tab' }))
+      
+    .tab-content
+      .tab-pane.active id="alphabet"
+        = render 'alphabet'
+      .tab-pane id="category"
+        = render 'category'
+      .tab-pane id="advanced"
+        = render 'advanced'

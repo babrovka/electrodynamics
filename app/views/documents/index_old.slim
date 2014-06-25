@@ -1,0 +1,21 @@
+.row
+  .col-md-9
+    h3 Все документы на тему: #{link_to 'производство'} > монтаж 
+    table.table.documents_table
+      thead
+        td Название
+        td Просмотров
+      tbody
+        - @documents.each do |document|
+          tr
+            td 
+              h3 = link_to document.title, document
+              span.label.label-warning Книга
+              span.label.label-success Наука
+              br
+              br
+              |Последний пост из блога: #{link_to 'День святого Исидора Севильского и день веб-мастера'}
+            td #{Array(213..32131).sample}
+  .col-md-3
+    = render 'shared/tree'
+    = render 'shared/tags'
