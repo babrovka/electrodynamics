@@ -1,3 +1,19 @@
 .row
   .col-md-12
-    = image_tag('bibl5.jpg')
+    h1 Поиск по сайту
+    ul.nav.nav-tabs.nav-justified
+      = content_tag(:li, (link_to 'По пользователям', '#users', :data => { :toggle => 'tab' }))
+      = content_tag(:li, (link_to 'По организациям', '#organizations', :data => { :toggle => 'tab' }))
+      = content_tag(:li, (link_to 'По записям', '#articles', :data => { :toggle => 'tab' }), :class => 'active')
+      = content_tag(:li, (link_to 'По библиотеке', '#documents', :data => { :toggle => 'tab' }))
+
+    .tab-content
+      .tab-pane id="users"
+      
+      .tab-pane id="organizations"
+      
+      .tab-pane.active id="articles"
+        = image_tag('bibl5.jpg')
+      .tab-pane id="documents"
+
+    
