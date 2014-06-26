@@ -1,14 +1,19 @@
-.row
-  .col-md-8
-    ul.nav.nav-tabs.nav-justified
-      = content_tag(:li, (link_to 'По алфавиту', '#alphabet', :data => { :toggle => 'tab' }), :class => 'active')
-      = content_tag(:li, (link_to 'По рубрике', '#category', :data => { :toggle => 'tab' }))
-      = content_tag(:li, (link_to 'Расширенный поиск', '#advanced', :data => { :toggle => 'tab' }))
-      
-    .tab-content
-      .tab-pane.active id="alphabet"
-        = render 'alphabet'
-      .tab-pane id="category"
-        = render 'category'
-      .tab-pane id="advanced"
-        = render 'advanced'
+ul.nav.nav-tabs.nav-justified
+  = content_tag(:li, (link_to 'По алфавиту', '#alphabet', :data => { :toggle => 'tab' }), :class => 'active')
+  = content_tag(:li, (link_to 'Тематический рубрикатор', '#category', :data => { :toggle => 'tab' }))
+  = content_tag(:li, (link_to 'Авторский указатель', '#author', :data => { :toggle => 'tab' }))
+  = content_tag(:li, (link_to 'Каталог журналов', '#magazines', :data => { :toggle => 'tab' }))
+  = content_tag(:li, (link_to 'Полнотекстовый поиск', '#advanced', :data => { :toggle => 'tab' }))
+  
+.tab-content
+  .tab-pane.active id="alphabet"
+    = image_tag('bibl1.jpg')
+  .tab-pane id="category"
+    = image_tag('bibl2.jpg')
+  .tab-pane id="author"
+    = image_tag('bibl3.jpg')
+  .tab-pane id="magazines"
+    = image_tag('bibl4.jpg')
+  .tab-pane id="advanced"
+    = image_tag('bibl5.jpg')
+    
