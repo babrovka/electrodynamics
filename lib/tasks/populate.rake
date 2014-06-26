@@ -28,6 +28,27 @@ namespace :create do
     User.new(:email => 'babrovka@gmail.com', :password => 'password', :password_confirmation => 'password', :firstname => 'Вячеслав', :lastname => 'Бобров', :organization_id => Organization.pluck(:id).sample, :role => 'user', :nickname => 'babrovka').save(:validate => false)
     User.new(:email => 'artemyan@gmail.com', :password => 'password', :password_confirmation => 'password', :firstname => 'Артем', :lastname => 'Санжаревский', :organization_id => Organization.pluck(:id).sample, :role => 'user', :nickname => 'artemyan').save(:validate => false)
     User.new(:email => 'voffkaa@gmail.com', :password => 'password', :password_confirmation => 'password', :firstname => 'Владимир', :lastname => 'Кривенко', :organization_id => Organization.pluck(:id).sample, :role => 'user', :nickname => 'voffkaa').save(:validate => false)
+    
+    User.new(:email => Faker::Internet.email, :firstname => 'Виталий', :lastname => 'Коваль', :organization_id => Organization.pluck(:id).sample, :role => 'user').save(:validate => false)
+    User.new(:email => Faker::Internet.email, :firstname => 'Кевин', :lastname => 'Лаланд', :organization_id => Organization.pluck(:id).sample, :role => 'user').save(:validate => false)
+    User.new(:email => Faker::Internet.email, :firstname => 'Андрей', :lastname => 'Мезин', :organization_id => Organization.pluck(:id).sample, :role => 'user').save(:validate => false)
+    User.new(:email => Faker::Internet.email, :firstname => 'Кирилл', :lastname => 'Готовец', :organization_id => Organization.pluck(:id).sample, :role => 'user').save(:validate => false)
+    User.new(:email => Faker::Internet.email, :firstname => 'Роман', :lastname => 'Граборенко', :organization_id => Organization.pluck(:id).sample, :role => 'user').save(:validate => false)
+    User.new(:email => Faker::Internet.email, :firstname => 'Николай', :lastname => 'Стасенко', :organization_id => Organization.pluck(:id).sample, :role => 'user').save(:validate => false)
+    User.new(:email => Faker::Internet.email, :firstname => 'Олег', :lastname => 'Евенко', :organization_id => Organization.pluck(:id).sample, :role => 'user').save(:validate => false)
+    User.new(:email => Faker::Internet.email, :firstname => 'Иван', :lastname => 'Усенко', :organization_id => Organization.pluck(:id).sample, :role => 'user').save(:validate => false)
+    User.new(:email => Faker::Internet.email, :firstname => 'Владимир', :lastname => 'Денисов', :organization_id => Organization.pluck(:id).sample, :role => 'user').save(:validate => false)
+    User.new(:email => Faker::Internet.email, :firstname => 'Дмитрий', :lastname => 'Коробов', :organization_id => Organization.pluck(:id).sample, :role => 'user').save(:validate => false)
+    User.new(:email => Faker::Internet.email, :firstname => 'Андрей', :lastname => 'Карев', :organization_id => Organization.pluck(:id).sample, :role => 'user').save(:validate => false)
+    User.new(:email => Faker::Internet.email, :firstname => 'Алексей', :lastname => 'Угаров', :organization_id => Organization.pluck(:id).sample, :role => 'user').save(:validate => false)
+    User.new(:email => Faker::Internet.email, :firstname => 'Андрей', :lastname => 'Степанов', :organization_id => Organization.pluck(:id).sample, :role => 'user').save(:validate => false)
+    User.new(:email => Faker::Internet.email, :firstname => 'Андрей', :lastname => 'Карев', :organization_id => Organization.pluck(:id).sample, :role => 'user').save(:validate => false)
+    User.new(:email => Faker::Internet.email, :firstname => 'Артём', :lastname => 'Волков', :organization_id => Organization.pluck(:id).sample, :role => 'user').save(:validate => false)
+    User.new(:email => Faker::Internet.email, :firstname => 'Константин', :lastname => 'Кольцов', :organization_id => Organization.pluck(:id).sample, :role => 'user').save(:validate => false)
+    User.new(:email => Faker::Internet.email, :firstname => 'Евгений', :lastname => 'Ковыршин', :organization_id => Organization.pluck(:id).sample, :role => 'user').save(:validate => false)
+    User.new(:email => Faker::Internet.email, :firstname => 'Джэфф', :lastname => 'Платт', :organization_id => Organization.pluck(:id).sample, :role => 'user').save(:validate => false)
+    User.new(:email => Faker::Internet.email, :firstname => 'Михаил', :lastname => 'Грабовский', :organization_id => Organization.pluck(:id).sample, :role => 'user').save(:validate => false)
+    
     puts "Users created!"
   end
   
@@ -97,6 +118,8 @@ namespace :create do
       end
     end
   end
+  
+
   
   task :countries_and_cities => :environment do
     
