@@ -1,6 +1,6 @@
 .row
   .col-md-12
-    h1 Поиск по сайту
+    h1 Все на тему "#{@theme.title}"
     ul.nav.nav-tabs.nav-justified
       = content_tag(:li, (link_to 'По пользователям', '#users', :data => { :toggle => 'tab' }), :class => 'active')
       = content_tag(:li, (link_to 'По организациям', '#organizations', :data => { :toggle => 'tab' }))
