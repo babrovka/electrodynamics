@@ -3,7 +3,14 @@
     .col-md-8
       .row
       
-      - 1.upto(9) do |n|
+      - ['Электростатика', 'Постоянный ток', 'Переменный ток', 'Магнетизм'].each do |n|
+        .col-md-4
+          .tag_area
+            .grey_tag
+            h4
+              = link_to n, '#' 
+      
+      - 5.upto(9) do |n|
         .col-md-4
           .tag_area
             .grey_tag
