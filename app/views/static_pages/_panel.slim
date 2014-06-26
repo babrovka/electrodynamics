@@ -2,11 +2,14 @@
   .row 
     .col-md-8
       .row
-      - @tags.each do |tag|
+      
+      - 1.upto(9) do |n|
         .col-md-4
           .tag_area
             .grey_tag
-            h4 = link_to tag.title, '#'
+            h4
+              = link_to '#' do 
+                |Раздел #{n}
            
         
     .col-md-4
