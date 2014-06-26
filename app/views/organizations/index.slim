@@ -1,19 +1,7 @@
 .row
   .col-md-9
-    table.table
-      thead
-        td Название
-        td Индекс
-      tbody
-      - @organizations.each do |organization|
-        tr
-          td.organization_cell
-            h1 = link_to organization.title, organization
-            = link_to "Подписаться", "#", :class => 'btn btn-primary'
-            .clearfix
-            #{rand(5000)} подписчиков
-            span Последний пост из блога: #{link_to random_article.title, random_article}
-          td = organization.index
-        
+    = render 'table'
   .col-md-3
     = render 'shared/categories'
+
+

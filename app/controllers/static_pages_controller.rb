@@ -4,6 +4,7 @@ class StaticPagesController < ApplicationController
     @articles = Article.limit(5)
     @event = Article.offset(5).limit(8)
     @best = Article.offset(7).limit(5)
+    @themes = Theme.limit(9)
   end
   
   def search 

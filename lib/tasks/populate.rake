@@ -119,6 +119,13 @@ namespace :create do
     end
   end
   
+  task :themes => :environment do
+    Theme.destroy_all
+    ['Электростатика', 'Постоянный ток', 'Переменный ток', 'Магнетизм', 'Раздел 5', 'Раздел 6', 'Раздел 7', 'Раздел 8', 'Раздел 9', 'Раздел 10'].each do |title|
+      Theme.create(:title => title)
+    end
+  end
+  
 
   
   task :countries_and_cities => :environment do

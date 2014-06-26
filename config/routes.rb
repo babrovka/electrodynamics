@@ -3,6 +3,7 @@ Electrodynamics::Application.routes.draw do
   resources :users, :only => [:index, :show] do
     get 'personal', :on => :member
   end
+  resources :themes, :only => [:show]
   resources :organizations
   resources :comments
   resources :blogs

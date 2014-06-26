@@ -3,20 +3,12 @@
     .col-md-8
       .row
       
-      - ['Электростатика', 'Постоянный ток', 'Переменный ток', 'Магнетизм'].each do |n|
+      - @themes.each do |theme|
         .col-md-4
           .tag_area
             .grey_tag
             h4
-              = link_to n, '#' 
-      
-      - 5.upto(9) do |n|
-        .col-md-4
-          .tag_area
-            .grey_tag
-            h4
-              = link_to '#' do 
-                |Раздел #{n}
+              = link_to theme.title, theme
            
         
     .col-md-4
