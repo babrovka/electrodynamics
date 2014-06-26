@@ -7,7 +7,7 @@
       form.form-inline
         .form-group
           input.form-control placeholder="Умный поиск по сайту"
-        button.btn.btn-primary.with_left_indent type="submit" Искать
+        = link_to 'Искать', search_path, :class => 'btn btn-primary with_left_indent'
         
     .col-md-3
       ul.nav.nav-pills

@@ -15,6 +15,7 @@ Electrodynamics::Application.routes.draw do
     end
   end
   match '/news' => 'articles#news', as: :news
+  match '/search' => 'static_pages#search', as: :search
   root :to => 'static_pages#index'
   ActiveAdmin.routes(self)
 end
