@@ -1,10 +1,20 @@
+a.btn.btn-success Загрузить документ
+
+br
+br
+br
+
 ul.nav.nav-tabs.nav-justified
   = content_tag(:li, (link_to 'По алфавиту', '#alphabet', :data => { :toggle => 'tab' }), :class => 'active')
   = content_tag(:li, (link_to 'Тематический рубрикатор', '#category', :data => { :toggle => 'tab' }))
   = content_tag(:li, (link_to 'Авторский указатель', '#author', :data => { :toggle => 'tab' }))
   = content_tag(:li, (link_to 'Каталог журналов', '#magazines', :data => { :toggle => 'tab' }))
   = content_tag(:li, (link_to 'Полнотекстовый поиск', '#advanced', :data => { :toggle => 'tab' }))
-  
+
+br
+br
+br 
+ 
 .tab-content
   .tab-pane.active id="alphabet"
     = image_tag('bibl1.jpg')

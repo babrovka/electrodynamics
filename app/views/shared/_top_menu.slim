@@ -26,7 +26,7 @@
     .col-md-12
       ul.nav.nav-pills.nav-justified
         = content_tag(:li, (link_to 'Новости', news_path), :class => ('active' if action?('news')))
-        = content_tag(:li, (link_to 'Статьи', articles_path), :class => ('active' if controller?('articles') && action?('index')))
+        = content_tag(:li, (link_to 'Записи', articles_path), :class => ('active' if controller?('articles') && action?('index')))
         = content_tag(:li, (link_to 'Библиотека', documents_path), :class => ('active' if controller?('documents')))
         = content_tag(:li, (link_to 'Организации', organizations_path), :class => ('active' if controller?('organizations')))
         = content_tag(:li, (link_to 'Пользователи', users_path), :class => ('active' if controller?('users') && action?('index')))
